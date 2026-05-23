@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>NEXUS — Premium Affiliate Store</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+<!-- Ambient glow -->
+<div class="ambient ambient-1" aria-hidden="true"></div>
+<div class="ambient ambient-2" aria-hidden="true"></div>
+
+<!-- ============================================================
+     NAVBAR
+     ============================================================ -->
+<nav class="navbar" role="navigation" aria-label="Main navigation">
+  <div class="navbar-inner">
+    <a href="#" class="logo" aria-label="NEXUS Home">
+      <div class="logo-mark" aria-hidden="true">N</div>
+      <span class="logo-text">NEXUS</span>
+    </a>
+
+    <div class="search-wrap" role="search">
+      <span class="search-icon" aria-hidden="true">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+      </span>
+      <input
+        type="search"
+        class="search-input"
+        id="searchInput"
+        placeholder="Search products..."
+        aria-label="Search products"
+        autocomplete="off"
+      />
+    </div>
+
+    <div class="nav-right">
+      <!-- Theme toggle -->
+      <button class="nav-btn" id="themeToggle" aria-label="Toggle color theme" title="Toggle theme">
+        <svg id="themeIconDark" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+        <svg id="themeIconLight" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================================================
+     HERO SECTION
+     ============================================================ -->
+<section class="hero" aria-labelledby="heroTitle">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="hero-content">
+    <div class="hero-tag">
+      <span class="hero-tag-dot" aria-hidden="true"></span>
+      Curated Affiliate Picks
+    </div>
+    <h1 class="hero-title" id="heroTitle">
+      Find Your Next<br><span>Favorite Product</span>
+    </h1>
+    <p class="hero-sub">
+      Discover trending products from reliable Shopee and Lazada sellers — just tap and start shopping.
+    </p>
+    <button class="hero-cta ripple-container" onclick="document.getElementById('productsSection').scrollIntoView({behavior:'smooth'})">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+      Browse Products
+    </button>
+    <div class="hero-stats" role="list" aria-label="Store statistics">
+      <div class="hero-stat" role="listitem">
+        <div class="hero-stat-number" id="statProducts">0</div>
+        <div class="hero-stat-label">Products</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PRODUCTS SECTION
+     ============================================================ -->
+<main id="productsSection">
+  <div class="section">
+    <div class="section-header">
+      <div class="section-eyebrow">Our Collection</div>
+      <h2 class="section-title">Featured <span>Products</span></h2>
+      <p class="section-sub">All purchases redirect securely to official partner stores.</p>
+    </div>
+
+    <!-- Filter Bar -->
+    <div class="filter-bar" role="toolbar" aria-label="Product filters">
+      <div class="filter-scroll" id="categoryFilters" role="group" aria-label="Category filters">
+        <!-- injected by JS -->
+      </div>
+      <select class="sort-select" id="sortSelect" aria-label="Sort products">
+        <option value="default">Sort: Default</option>
+        <option value="price-asc">Price: Low → High</option>
+        <option value="price-desc">Price: High → Low</option>
+        <option value="name-asc">Name: A → Z</option>
+      </select>
+      <span class="results-count" id="resultsCount" aria-live="polite"></span>
+    </div>
+
+    <!-- Products Grid -->
+    <div class="products-grid" id="productsGrid" aria-label="Products" role="list">
+      <!-- Skeleton placeholders injected first -->
+    </div>
+  </div>
+</main>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer role="contentinfo">
+  <div class="footer-inner">
+    <div class="footer-logo">NEXUS</div>
+    <p class="footer-disclaimer">
+      This website contains affiliate links. When you click and purchase through these links,
+      we may earn a small commission at <strong>no extra cost to you</strong>.
+      All product prices and availability are subject to change on the partner store.
+    </p>
+    <p class="footer-bottom">© 2025 NEXUS Affiliate Store — Not responsible for third-party pricing or availability.</p>
+  </div>
+</footer>
+
+<!-- ============================================================
+     PRODUCT MODAL
+     ============================================================ -->
+<div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-label="Product details" tabindex="-1">
+  <div class="modal-backdrop" id="modalBackdrop"></div>
+  <div class="modal" id="modal">
+    <button class="modal-close" id="modalClose" aria-label="Close product details">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="modal-body">
+      <!-- Image Slider -->
+      <div class="slider-wrap" id="sliderWrap">
+        <div class="slider-track" id="sliderTrack">
+          <!-- slides injected by JS -->
+        </div>
+        <button class="slider-prev" id="sliderPrev" aria-label="Previous image">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button class="slider-next" id="sliderNext" aria-label="Next image">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+        <span class="slider-counter" id="sliderCounter" aria-live="polite">1 / 1</span>
+        <div class="slider-dots" id="sliderDots" role="tablist" aria-label="Image navigation"></div>
+      </div>
+
+      <!-- Details -->
+      <div class="modal-details" id="modalDetails">
+        <!-- injected by JS -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Toast container -->
+<div class="toast-container" id="toastContainer" aria-live="polite" aria-atomic="false"></div>
+
+<!-- Back to top -->
+<button class="back-top" id="backTop" aria-label="Back to top" title="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<!-- ============================================================
+     JAVASCRIPT
+     ============================================================ -->
+
+<script src="script.js"></script>
+</body>
+</html>
