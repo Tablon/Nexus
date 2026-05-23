@@ -16,7 +16,7 @@ const products = [
     id: "p001",
     name: "Apple AirPods Pro 2nd Generation",
     description: "The AirPods Pro 2nd Gen deliver up to 2x more Active Noise Cancellation than the previous generation. With Adaptive Audio, they seamlessly blend the outside world into your listening experience based on your environment. Transparency mode is so natural you can hear conversations around you without removing them.",
-    price: "₱14,990",
+    price: "₱1",
     category: "Electronics",
     brand: "Apple",
     featured: true,
